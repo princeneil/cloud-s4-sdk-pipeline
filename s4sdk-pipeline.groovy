@@ -33,9 +33,9 @@ pipeline {
                     when { expression { commonPipelineEnvironment.configuration.runStage.STATIC_CODE_CHECKS } }
                     steps { stageStaticCodeChecks script: this }
                 }
-                stage("Lint") {
-                    steps { stageLint script: this }
-                }
+                //stage("Lint") {
+                //    steps { stageLint script: this }
+                //}
                 stage("Backend Unit Tests") {
                     when { expression { commonPipelineEnvironment.configuration.runStage.BACKEND_UNIT_TESTS } }
                     steps { stageUnitTests script: this }
@@ -52,10 +52,10 @@ pipeline {
                     when { expression { commonPipelineEnvironment.configuration.runStage.FRONTEND_UNIT_TESTS } }
                     steps { stageFrontendUnitTests script: this }
                 }
-                stage("NPM Dependency Audit") {
-                    when { expression { commonPipelineEnvironment.configuration.runStage.NPM_AUDIT } }
-                    steps { stageNpmAudit script: this }
-                }
+                //stage("NPM Dependency Audit") {
+                //    when { expression { commonPipelineEnvironment.configuration.runStage.NPM_AUDIT } }
+                //    steps { stageNpmAudit script: this }
+                //}
             }
         }
 
